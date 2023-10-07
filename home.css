@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+#logo {
+    width: 70px;
+    height: 70px;
+}
+#bank-name {
+    text-align: center;
+    flex-grow: 1;
+}
+nav {
+    text-align: right;
+    padding: 10px 20px;
+    background-color: #444;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+#banner {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+#banner img {
+    width: 60%;
+    max-height: 300px;
+    object-fit: cover;
+}
+#scrolling-text {
+    width: 40%;
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow: hidden;
+}
+#info {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+#services {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #e5e5e5;
+}
+.service {
+    text-align: center;
+    padding: 10px;
+}
