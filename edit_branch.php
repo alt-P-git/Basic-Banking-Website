@@ -38,7 +38,6 @@ include("auth_session.php");
         if ($row['count'] > 0) {
             echo "<div id='maincontainer'>
               <h3>Branch already exists</h3><br/>
-              <p class='link'>Click here to <a href='add_branch.php'>Add branch</a></p>
             </div>";
         } else {
 

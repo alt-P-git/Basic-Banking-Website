@@ -32,14 +32,12 @@ include("auth_session.php");
         $addr = $_POST['customer_street'];
         $city = $_POST['customer_city'];
         
-        $sql = "SELECT COUNT(*) as count FROM customer where customer_name = '$custname' AND customer_street = '$addr' AND customer_city = '$city';";
+        $sql = "SELECT COUNT(*) as count FROM customer where customer_name = '$cust_name' AND customer_street = '$addr' AND customer_city = '$city';";
     $res = mysqli_query($connection, $sql);
     $row = mysqli_fetch_assoc($res);
     if ($row['count']>0) {
-      echo "<div id='login-form'>
+      echo "<div id='maincontainer'>
               <h3>Customer already exists</h3><br/>
-              
-              <p class='link'>Click here to <a href='register.php'>register</a></p>
             </div>";
     } else {
 
