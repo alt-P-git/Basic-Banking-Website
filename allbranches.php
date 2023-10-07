@@ -26,7 +26,7 @@ include("auth_session.php");
     </nav>
     </div>
     
-    <div class="tableContainer">
+    <div class="tableContainer" style="margin-top: 100px;">
         <div class="table1"  style="margin-top: 100px;">
             <p>List of all Branches</p>
             <?php
@@ -39,6 +39,7 @@ include("auth_session.php");
             }
             echo '</table>';
             ?>
+            <p><a href="./add_branch.php">Add branch</a></p>
         </div>
     </div>
 </body>

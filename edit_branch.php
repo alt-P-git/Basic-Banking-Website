@@ -32,7 +32,7 @@ include("auth_session.php");
         $branch_city = $_POST['branch_city'];
         $assets = $_POST['assets'];
 
-        $updated = mysqli_query($connection, "UPDATE branch SET branch_city='$branch_city', assets='$assets' WHERE branch_name='$uid'");
+        $updated = mysqli_query($connection, "UPDATE branch SET branch_name='$branch_name', branch_city='$branch_city', assets='$assets' WHERE branch_name='$uid'");
 
         if ($updated) {
             header("Location: branch_detail.php?uid=$branch_name");
@@ -45,7 +45,6 @@ include("auth_session.php");
     }
     ?>
     <div class="details">
-
         <div id="maincontainer">
             <form method="POST">
                 <h2>Edit details</h2>
@@ -60,7 +59,7 @@ include("auth_session.php");
                     </tr>
                     <tr class="city">
                         <td>Assets:</td>
-                        <td><input type="text" name="assets" value="<?php echo $result['assets'] ?>" /></td>
+                        <td><input type="number" name="assets" max="99999999" value="<?php echo $result['assets'] ?>" /></td>
                     </tr>
                 </table>
                 <p><input type="submit" name="update" value="Update"></p>
@@ -68,5 +67,4 @@ include("auth_session.php");
         </div>
     </div>
 </body>
-
 </html>
