@@ -31,18 +31,29 @@ include("auth_session.php");
         $branch_name = $_POST['branch_name'];
         $branch_city = $_POST['branch_city'];
         $assets = $_POST['assets'];
+        
+        $sql = "SELECT COUNT(*) as count FROM branch where branch_name = '$branch_name';";
+        $res = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($res);
+        if ($row['count'] > 0) {
+            echo "<div id='maincontainer'>
+              <h3>Branch already exists</h3><br/>
+              <p class='link'>Click here to <a href='add_branch.php'>Add branch</a></p>
+            </div>";
+        } else {
 
         $updated = mysqli_query($connection, "UPDATE branch SET branch_name='$branch_name', branch_city='$branch_city', assets='$assets' WHERE branch_name='$uid'");
 
         if ($updated) {
             header("Location: branch_detail.php?uid=$branch_name");
         }
+    }
     } else {
         $uid = $_GET['uid'];
         $sql = "SELECT branch_name, branch_city, assets FROM branch WHERE branch_name='" . $uid . "'";
         $res = mysqli_query($connection, $sql);
         $result = mysqli_fetch_assoc($res);
-    }
+    
     ?>
     <div class="details">
         <div id="maincontainer">
@@ -66,5 +77,6 @@ include("auth_session.php");
             </form>
         </div>
     </div>
+    <?php } ?>
 </body>
 </html>
