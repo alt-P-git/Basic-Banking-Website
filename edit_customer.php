@@ -24,32 +24,32 @@ include("auth_session.php");
         <a href="./allcustomers.php">All Customer Details</a>
         <a href="./logout.php">Log out</a>
     </nav><br><br><br><br><br><br>
-    <div class="details">
-        <?php
-        include('connection.php');
-        if (isset($_POST['update'])) {
-            $uid = $_GET['uid'];
-            $cust_name = $_POST['customer_name'];
-            $addr = $_POST['customer_street'];
-            $city = $_POST['customer_city'];
+    <?php
+    include('connection.php');
+    if (isset($_POST['update'])) {
+        $uid = $_GET['uid'];
+        $cust_name = $_POST['customer_name'];
+        $addr = $_POST['customer_street'];
+        $city = $_POST['customer_city'];
 
-            $updated = mysqli_query($connection, "UPDATE customer SET customer_name='$cust_name', customer_street='$addr', customer_city='$city' WHERE customer_name='$uid'");
+        $updated = mysqli_query($connection, "UPDATE customer SET customer_name='$cust_name', customer_street='$addr', customer_city='$city' WHERE customer_name='$uid'");
 
-            if ($updated) {
-                header("Location: account_detail.php?uid=$cust_name");
-            }
-        } else {
-            $uid = $_GET['uid'];
-            $sql = "SELECT customer_name, customer_street, customer_city FROM customer WHERE customer_name='" . $uid . "'";
-            $res = mysqli_query($connection, $sql);
-            $result = mysqli_fetch_assoc($res);
+        if ($updated) {
+            header("Location: account_detail.php?uid=$cust_name");
         }
-        ?>
+    } else {
+        $uid = $_GET['uid'];
+        $sql = "SELECT customer_name, customer_street, customer_city FROM customer WHERE customer_name='" . $uid . "'";
+        $res = mysqli_query($connection, $sql);
+        $result = mysqli_fetch_assoc($res);
+    }
+    ?>
+    <div class="details">
         <div id="maincontainer">
-        <form method="POST">
-           
+            <form method="POST">
 
-            <h2>Edit details</h2>
+
+                <h2>Edit details</h2>
                 <table id="container">
                     <tr class="custname">
                         <td>Customer name:</td>
@@ -65,7 +65,7 @@ include("auth_session.php");
                     </tr>
                 </table>
                 <p><input type="submit" name="update" value="Update"></p>
-        </form>
+            </form>
         </div>
     </div>
 </body>

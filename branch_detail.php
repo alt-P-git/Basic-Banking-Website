@@ -30,7 +30,7 @@ include("auth_session.php");
         $res = mysqli_query($connection, $sql);
         $branch_name = '';
         $branch_city = '';
-        $city = '';
+        $sssets = '';
         if ($result = mysqli_fetch_assoc($res)) {
             $branch_name = $result['branch_name'];
             $branch_city = $result['branch_city'];
