@@ -26,7 +26,7 @@ include("auth_session.php");
     </nav>
     </div>
     
-    <div class="tableContainer" style="margin-top: 100px;">
+    <div class="tableContainer" style="margin-top: 200px;">
         <div class="table1"  style="margin-top: 100px;">
             <p>List of all Branches</p>
             <?php
