@@ -36,7 +36,7 @@ include("auth_session.php");
             $updated = mysqli_query($connection, "UPDATE customer SET customer_name='$cust_name', customer_street='$addr', customer_city='$city' WHERE customer_name='$uid'");
 
             if ($updated) {
-                header("Location: account_detail.php?uid=$uid");
+                header("Location: account_detail.php?uid=$cust_name");
             }
         } else {
             $uid = $_GET['uid'];
