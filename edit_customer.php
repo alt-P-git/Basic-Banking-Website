@@ -31,18 +31,30 @@ include("auth_session.php");
         $cust_name = $_POST['customer_name'];
         $addr = $_POST['customer_street'];
         $city = $_POST['customer_city'];
+        
+        $sql = "SELECT COUNT(*) as count FROM customer where customer_name = '$custname' AND customer_street = '$addr' AND customer_city = '$city';";
+    $res = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($res);
+    if ($row['count']>0) {
+      echo "<div id='login-form'>
+              <h3>Customer already exists</h3><br/>
+              
+              <p class='link'>Click here to <a href='register.php'>register</a></p>
+            </div>";
+    } else {
 
         $updated = mysqli_query($connection, "UPDATE customer SET customer_name='$cust_name', customer_street='$addr', customer_city='$city' WHERE customer_name='$uid'");
 
         if ($updated) {
             header("Location: account_detail.php?uid=$cust_name");
         }
+    }
     } else {
         $uid = $_GET['uid'];
         $sql = "SELECT customer_name, customer_street, customer_city FROM customer WHERE customer_name='" . $uid . "'";
         $res = mysqli_query($connection, $sql);
         $result = mysqli_fetch_assoc($res);
-    }
+    
     ?>
     <div class="details">
         <div id="maincontainer">
@@ -68,6 +80,6 @@ include("auth_session.php");
             </form>
         </div>
     </div>
+    <?php } ?>
 </body>
-
 </html>
