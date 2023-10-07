@@ -35,7 +35,7 @@ include("auth_session.php");
             $res = mysqli_query($connection, $sql);
             echo '<table border="1"><tr><th>Branch Name</th><th>Branch City</th><th>Assets</th></tr>';
             while ($result = mysqli_fetch_assoc($res)) {
-                echo '<tr><td>' . $result['branch_name'] . '</td><td>' . $result['branch_city'] . '</td><td>' . $result['assets'] . '</td></tr>';
+                echo '<tr><td>' . $result['branch_name'] . '</td><td>' . $result['branch_city'] . '</td><td>' . $result['assets'] . '</td><td><a href="branch_detail.php?uid=' . $result['branch_name'] . '">View Details</a></td></tr>';
             }
             echo '</table>';
             ?>
