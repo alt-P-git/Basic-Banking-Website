@@ -5,7 +5,7 @@ include("auth_session.php");
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trust Bank</title>
+    <title>All branches-Trust Bank</title>
     <link rel="stylesheet" href="form1.css" />
 </head>
 
