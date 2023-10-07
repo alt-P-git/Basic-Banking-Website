@@ -35,7 +35,7 @@ include("auth_session.php");
         $branch_city = stripslashes($_REQUEST['branch_city']);
         $branch_city = mysqli_real_escape_string($connection, $branch_city);
         $assets = $_REQUEST['assets'];
-        $sql = "SELECT COUNT(*) as count FROM branch where branch_name = '$branch_name' AND branch_city = '$branch_city' AND assets = '$assets';";
+        $sql = "SELECT COUNT(*) as count FROM branch where branch_name = '$branch_name';";
         $res = mysqli_query($connection, $sql);
         $row = mysqli_fetch_assoc($res);
         if ($row['count'] > 0) {
