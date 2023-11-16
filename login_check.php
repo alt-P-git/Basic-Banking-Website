@@ -8,7 +8,7 @@ if($result=mysqli_fetch_assoc($res))
 {
 session_start();
 $_SESSION['userid']=$result['userid'];
-header('location:loggedin.php'); // (use the name you gave to page created in Assignment 7)
+header('location:loggedin.php');
 }
 else
 { header('location:login.php'); }
